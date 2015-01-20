@@ -10,5 +10,5 @@ Thumbs.db
 
 
 # Image extensions #
-.jpg
-.png
+*.jpg
+*.png
