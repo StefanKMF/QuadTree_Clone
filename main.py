@@ -52,10 +52,15 @@ def fill_image(x,y):
 class Node():
 
 
-    def __init__(self, parent, rect):
+    def __init__(self, parent, box):
         self.parent = parent
         self.children = [None,None,None,None]
-
+        if not parent:
+            self.depth = 0
+        else:
+            self.depth = parent.depth + 1
+        self.box = box
+        
 
 
 #new_Image = Image.new(IMAGE.mode,IMAGE.size,(255,255,255))
@@ -63,11 +68,12 @@ class Node():
 #print (get_error_sum(0,0,500,500, get_average_colour(0,0,500,500)))
 #new_Image.save('/Users/Stefan/Google Drive/Side Projects/QuadTree Pictures/Output.png', "PNG")
 
-
-class Node():
-
-
 class QuadTree():
+    maxdepth_ = 1
+    leaves_ = []
+    allnodes_ = []
+
+    def __init_(self, rootnode, ) #constructor.
 
 
 
