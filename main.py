@@ -19,7 +19,7 @@ def get_average_colour(x0,y0,x1,y1):
             b += pixel[2]
     return (r/area, g/area, b/area)
 
-#def get_dominant_colour(x0,y0,x1,y1):
+#def get_dominant_colour(x0,y0,x1,y1): Extra feature once basics are completed.
 
 def get_error_sum(x0,y0,x1,y1,average):
     re, ge, be = 0,0,0
@@ -50,9 +50,10 @@ def fill_image(x,y):
             fill_rectangle((width,height,width+x,height+y),colour)
 
 class Node():
-
+    #Need to define enum type here for Root, Branch, Leaf
 
     def __init__(self, parent, box):
+
         self.parent = parent
         self.children = [None,None,None,None]
         if not parent:
@@ -60,7 +61,11 @@ class Node():
         else:
             self.depth = parent.depth + 1
         self.box = box
-        
+        x0,y0,x1,y1 = box
+        if self.parent == None:
+            self.type = Node.Root
+
+
 
 
 #new_Image = Image.new(IMAGE.mode,IMAGE.size,(255,255,255))
