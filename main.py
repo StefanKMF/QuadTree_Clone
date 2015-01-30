@@ -64,6 +64,18 @@ class Node():
         x0,y0,x1,y1 = box
         if self.parent == None:
             self.type = Node.Root
+        elif (x1 - x0) <= Node.minimum_size:
+            self.type = Node.Leaf
+        else:
+            self.type = Node.Branch
+
+    def quad_divide(self):
+        #Check if Node cannot be broken down any further. Already at pixel size.
+        if self.type == Node.Leaf:
+            return
+            x0,y0,x1,y1 = self.box
+            height = (x1 - x0)/2
+        #Create the new sub-boxes
 
 
 
