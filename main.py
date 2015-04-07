@@ -80,7 +80,8 @@ class Node():
         if self.type == Node.Leaf:
             return
             x0,y0,x1,y1 = self.box
-            height = (x1 - x0)/2
+            h = (x1 - x0)/2
+
         #Create the new sub-boxes
 
 
