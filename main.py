@@ -8,7 +8,8 @@ IMAGE = Image.open("InputImage.jpg")
 IMG_DATA = IMAGE.load()
 
 
-def get_average_colour(x0,y0,x1,y1):
+def get_average_colour(box):
+    x0,y0,x1,y1 = box
     r,g,b = 0, 0, 0
     area = (x1-x0)*(y1-y0)
     for x in xrange(x0,x1):
@@ -19,9 +20,10 @@ def get_average_colour(x0,y0,x1,y1):
             b += pixel[2]
     return (r/area, g/area, b/area)
 
-#def get_dominant_colour(x0,y0,x1,y1): Extra feature once basics are completed.
+#def get_dominant_colour(x0,y0,x1,y1):
 
-def get_error_sum(x0,y0,x1,y1,average):
+def get_error_sum(box,average):
+    x0,y0,x1,y1 = box
     re, ge, be = 0,0,0
     area = (x1-x0)*(y1-y0)
     for x in xrange(x0,x1):
@@ -51,6 +53,10 @@ def fill_image(x,y):
 
 class Node():
     #Need to define enum type here for Root, Branch, Leaf
+    Root = 0
+    Branch = 1
+    Leaf = 2
+
 
     def __init__(self, parent, box):
 
